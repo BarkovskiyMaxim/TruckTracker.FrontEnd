@@ -1,0 +1,9 @@
+{
+    "include": [
+        "sources/ts/**/*"
+    ],
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs"
+    }
+}
