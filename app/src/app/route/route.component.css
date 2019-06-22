@@ -24,13 +24,26 @@
 }
 
 .info_table_details.active {
-    height: 300px;
+    height: 600px;
+    padding: 20px;
 }
 
 .info_table_details .info_table_detail {
     display: block;
+    height: 40px;
+    position: relative;
+    border-bottom: 1px solid #9d9d9d;
 }
 
-.info_table_details .info_table_detail .info_table_field {
-    display: inline-block;
+.info_table_details .info_table_detail .info_table_field.text_field {
+    position: absolute;
+    width: 25%;
+    padding: 10px;
+}
+
+.info_table_details .info_table_detail .info_table_field.text_value {
+    position: absolute;
+    left: calc(25% + 10px);
+    right: 0%;
+    padding: 10px;
 }

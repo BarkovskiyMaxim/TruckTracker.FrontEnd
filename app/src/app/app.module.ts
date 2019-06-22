@@ -7,6 +7,7 @@ import { NavigationPanelComponent } from './navigation-panel/navigation-panel.co
 import { InfoTableComponent } from './info-table/info-table.component';
 import { MapComponent } from './map/map.component';
 import { RouteComponent } from './route/route.component';
+import { FasadService } from './services/routingService';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { RouteComponent } from './route/route.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [FasadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
