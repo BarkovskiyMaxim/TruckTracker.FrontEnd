@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InfoTableComponent } from './info-table/info-table.component';
 import { OrderStatus } from './utils/orders';
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
-  { path: '', component: InfoTableComponent, pathMatch: 'full', data: { status: OrderStatus.Wait } },
-  { path: 'completed', component: InfoTableComponent, data: { status: OrderStatus.Success } },
-  { path: 'inprogress', component: InfoTableComponent, data: { status: OrderStatus.InProgress } },
+  { path: '', component: InfoTableComponent, pathMatch: 'full' },
+  { path: 'map', component: MapComponent  }
 ];
 
 @NgModule({

@@ -1,0 +1,7 @@
+.table {
+    background-color: #222;
+}
+
+.table .row {
+    display: block;
+}
