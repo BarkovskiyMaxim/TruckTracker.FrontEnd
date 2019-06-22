@@ -1,7 +1,23 @@
-.table {
-    background-color: #222;
+.info_table .info_table_row {
+    display: block;
+    border-bottom: 1px solid #9d9d9d;
 }
 
-.table .row {
+.info_table .info_table_row:hover {
     display: block;
+    border-bottom: 1px solid black;
+}
+
+.info_table .info_table_cell {
+    width: 33%;
+    position: relative;
+    height: 40px;
+    display: inline-block;
+    padding: 5px;
+}
+
+.info_table .info_table_head {
+    font-weight: bold;
+    display: block;
+    border-bottom: 2px solid #9d9d9d;
 }

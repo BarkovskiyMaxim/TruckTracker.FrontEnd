@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Order, Coordinates } from '../utils/orders';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-info-table',
@@ -7,8 +8,9 @@ import { Order, Coordinates } from '../utils/orders';
   styleUrls: ['./info-table.component.css']
 })
 export class InfoTableComponent implements OnInit {
-  items: Order[];
-  constructor() { 
+  orders: Order[];
+  
+  private initOrders() {
     var order = new Order();
     order.end = new Coordinates();
     order.end.lat = 1;
@@ -25,7 +27,11 @@ export class InfoTableComponent implements OnInit {
     order1.start.lat = 1;
     order1.start.lng = 1;
     order1.id = "Test1";
-    this.items = [order, order1]
+    this.orders = [order, order1]
+  }
+
+  constructor() {
+    this.initOrders();
   }
 
   ngOnInit() {

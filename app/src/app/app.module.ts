@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NavigationPanelComponent } from './navigation-panel/navigation-panel.component';
 import { InfoTableComponent } from './info-table/info-table.component';
 import { MapComponent } from './map/map.component';
+import { RouteComponent } from './route/route.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationPanelComponent,
     InfoTableComponent,
-    MapComponent
+    MapComponent,
+    RouteComponent
   ],
   imports: [
     BrowserModule,

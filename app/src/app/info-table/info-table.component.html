@@ -1,12 +1,10 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-8 col-sm-6">ID</div>
-    <div class="col-xs-8 col-sm-6">Start Coordinates</div>
-    <div class="col-xs-8 col-sm-6">End Coordinates</div>
+<div class="info_table">
+  <div class="info_table_head">
+    <div class="info_table_cell">ID</div>
+    <div class="info_table_cell">Start Coordinates</div>
+    <div class="info_table_cell">End Coordinates</div>
   </div>
-  <div class="row" *ngFor="let item of items">
-    <div class="col-xs-8 col-sm-6"> {{ item.id }} </div>
-    <div class="col-xs-8 col-sm-6"> {{ item.start.toString() }} </div>
-    <div class="col-xs-8 col-sm-6"> {{ item.end.toString() }} </div>
+  <div class="info_table_row" *ngFor="let item of orders">
+    <app-route [route]=item></app-route>
   </div>
 </div>

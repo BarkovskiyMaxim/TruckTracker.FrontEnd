@@ -16,5 +16,4 @@ export class Order {
     start: Coordinates;
     end: Coordinates;
     id: string;
-
 }

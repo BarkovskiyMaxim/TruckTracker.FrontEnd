@@ -1,0 +1,36 @@
+.info_table_row {
+    display: block;
+    border-bottom: 1px solid #9d9d9d;
+}
+
+.info_table_row:hover {
+    display: block;
+    border-bottom: 1px solid black;
+}
+
+.info_table_cell {
+    width: 33%;
+    position: relative;
+    height: 40px;
+    display: inline-block;
+    padding: 5px;
+}
+
+.info_table_details {
+    height: 0px;
+    overflow: hidden;
+    display: block;
+    transition: height 0.15s ease-out;
+}
+
+.info_table_details.active {
+    height: 300px;
+}
+
+.info_table_details .info_table_detail {
+    display: block;
+}
+
+.info_table_details .info_table_detail .info_table_field {
+    display: inline-block;
+}

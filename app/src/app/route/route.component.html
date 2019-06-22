@@ -1,0 +1,19 @@
+<div class="info_table_cells" (click)="toggleVisible()">
+  <div class="info_table_cell">{{ route.id }}</div>
+  <div class="info_table_cell">{{ route.start.toString() }}</div>
+  <div class="info_table_cell">{{ route.end.toString() }}</div>
+</div>
+<div class="info_table_details" [class.active]='detailsVisible'>
+  <div class="info_table_detail">
+    <div class="info_table_field">ID</div>
+    <div class="info_table_field">{{ route.id }}</div>
+  </div>
+  <div class="info_table_detail">
+    <div class="info_table_field">Start</div>
+    <div class="info_table_field">{{ route.start.toString() }}</div>
+  </div>
+  <div class="info_table_detail">
+    <div class="info_table_field">End</div>
+    <div class="info_table_field">{{ route.end.toString() }}</div>
+  </div>
+</div>
