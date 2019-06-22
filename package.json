@@ -1,11 +1,14 @@
 {
-    "name": "motion_predictor",
-    "version": "0.0.1",
+    "name": "example",
     "scripts": {
-        "prestart": "gulp build"
+        "prestart": "gulp build",
+        "start": "node server.js"
     },
+    "version": "0.0.1",
+    "dependencies": {},
     "devDependencies": {
         "gulp": "^4.0.0",
+        "del": "4.1.1",
         "typescript": "^3.3.3333",
         "gulp-typescript": "~5.0.0",
         "gulp-sass": "~4.0.2",

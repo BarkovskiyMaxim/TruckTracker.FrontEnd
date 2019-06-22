@@ -1,29 +1,20 @@
 const gulp = require('gulp');
 var ts = require("gulp-typescript");
-var sass = require('gulp-sass');
-sass.compiler = require('node-sass');
 var tsProject = ts.createProject("tsconfig.json");
-
-function css() {
-    return gulp.src('sources/scss/main.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('dist/css'));
-}
+var del = require('del');
 
 function tssources() {
     return tsProject.src()
         .pipe(tsProject())
-        .js.pipe(gulp.dest('dist/js'))
+        .js.pipe(gulp.dest('./'))
 }
 
-function copyPackageJson() {
-    return gulp.src("package.json")
-    .pipe(gulp.dest("dist"))
+function clean() {
+    del('dist/**', {force:true});
 }
 
 gulp.task("build", function(callback) {
+    clean();
     tssources();
-    css();
-    copyPackageJson();
     callback();
 })
