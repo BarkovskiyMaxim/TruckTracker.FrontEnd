@@ -17,4 +17,7 @@ export class FasadService {
     getOrders() {
         return this.orders;
     }
+    saveOrder(order: Order) {
+        this.orders.push(order);
+    }
 }

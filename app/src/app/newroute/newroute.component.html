@@ -1,0 +1,32 @@
+<div class="link" (click)="show()">Add new order...</div>
+<div class="info_table_details" [class.active]='visible'>
+  <div class="info_table_detail">
+    <div class="info_table_field text_field">ID</div>
+    <input class="info_table_field text_value" (blur)="order.id = $event.target.value;" type="text"
+      [value]="order.id" />
+  </div>
+  <div class="info_table_detail">
+    <div class="info_table_field text_field">Start - lat</div>
+    <input class="info_table_field text_value" type="number" (blur)="order.start.lat = $event.target.value"
+      [value]="order.start.lat" />
+  </div>
+  <div class="info_table_detail">
+    <div class="info_table_field text_field">Start - lng</div>
+    <input class="info_table_field text_value" type="number" (blur)="order.start.lng = $event.target.value"
+      [value]="order.start.lng" />
+  </div>
+  <div class="info_table_detail">
+    <div class="info_table_field text_field">End - lat</div>
+    <input class="info_table_field text_value" type="number" (blur)="order.end.lat = $event.target.value"
+      [value]="order.end.lat" />
+  </div>
+  <div class="info_table_detail">
+    <div class="info_table_field text_field">End - lng</div>
+    <input class="info_table_field text_value" type="number" (blur)="order.end.lng = $event.target.value"
+      [value]="order.end.lng" />
+  </div>
+  <div class="button_panel">
+    <div class="button" (click)="save()">Save</div>
+    <div class="button" (click)="cancel()">Cancel</div>
+  </div>
+</div>

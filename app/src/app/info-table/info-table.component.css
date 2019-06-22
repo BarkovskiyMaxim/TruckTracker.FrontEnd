@@ -3,9 +3,18 @@
     border-bottom: 1px solid #9d9d9d;
 }
 
+.info_table .info_table_row.link {
+    border-bottom: none;
+}
+
+
 .info_table .info_table_row:hover {
     display: block;
     border-bottom: 1px solid black;
+}
+
+.info_table .info_table_row.link:hover {
+    border-bottom: none;
 }
 
 .info_table .info_table_cell {

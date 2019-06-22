@@ -27,7 +27,7 @@ export class Coordinates implements ICoordinate {
 }
 
 export class Order implements IOrder {
-    start: Coordinates;
-    end: Coordinates;
-    id: string;
+    start: Coordinates = new Coordinates();
+    end: Coordinates = new Coordinates();
+    id: string = "";
 }

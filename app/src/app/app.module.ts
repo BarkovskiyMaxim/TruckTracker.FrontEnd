@@ -8,6 +8,7 @@ import { InfoTableComponent } from './info-table/info-table.component';
 import { MapComponent } from './map/map.component';
 import { RouteComponent } from './route/route.component';
 import { FasadService } from './services/routingService';
+import { NewrouteComponent } from './newroute/newroute.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FasadService } from './services/routingService';
     NavigationPanelComponent,
     InfoTableComponent,
     MapComponent,
-    RouteComponent
+    RouteComponent,
+    NewrouteComponent
   ],
   imports: [
     BrowserModule,
