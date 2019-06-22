@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">ID</div>
+        <div class="col-sm">Start Coordinates</div>
+        <div class="col-sm">End Coordinates</div>
+    </div>
+  <div class="row" *ngFor="let item of items">
+    <div class="col-sm"> {{ item.id }} </div>
+    <div class="col-sm"> {{ item.start.toString() }} </div>
+    <div class="col-sm"> {{ item.end.toString() }} </div>
+  </div>
+</div>
