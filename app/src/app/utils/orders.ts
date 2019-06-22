@@ -6,9 +6,9 @@ export enum OrderStatus {
 
 export class Coordinates {
     lat: number;
-    ltn: number;
+    lng: number;
     toString() {
-        return [this.lat, this.ltn].join(', ');
+        return [this.lat, this.lng].join(', ');
     }
 }
 
