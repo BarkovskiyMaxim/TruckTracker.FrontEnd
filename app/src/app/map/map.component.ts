@@ -48,12 +48,17 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this._map = renderMap(this.el.nativeElement);
-    if (!this.orders)
+    if (!this.orders) {
       this.routingService.getOrders().subscribe((result) => {
         this.orders = result;
         result.forEach((item) => {
           this._map.showRoute(item.id, item.start, item.end);
         })
-      });
+      })
+    } else {
+      this.orders.forEach((item) => {
+        this._map.showRoute(item.id, item.start, item.end);
+      })
+    }
   }
 }
