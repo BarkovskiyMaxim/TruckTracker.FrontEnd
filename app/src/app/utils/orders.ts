@@ -15,6 +15,13 @@ export interface ICoordinate {
 }
 
 export class Coordinates implements ICoordinate {
+    static from(value: string) {
+        var cords = value.split(',');
+        return new Coordinates({ 
+            lat: parseFloat(cords[0]),
+            lng: parseFloat(cords[1])
+        });
+    }
     constructor(coordinate: ICoordinate = { lat: 0, lng: 0 }) {
         this.lat = coordinate.lat;
         this.lng = coordinate.lng;

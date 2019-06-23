@@ -17,10 +17,8 @@
 }
 
 .info_table_details {
-    height: 0px;
-    overflow: hidden;
+    height: 600px;
     display: block;
-    transition: height 0.15s ease-out;
 }
 
 .info_table_details.active {

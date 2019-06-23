@@ -1,0 +1,13 @@
+.button_panel {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+}
+
+.button_panel .button {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    margin-right: 10px;
+}
