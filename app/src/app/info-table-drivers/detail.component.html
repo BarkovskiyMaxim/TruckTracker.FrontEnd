@@ -1,0 +1,11 @@
+<div style="width: 100%; margin: 10px;">
+    <mat-form-field style="display: block">
+        <input matInput placeholder="Full Name" readonly [value]="driver.name.toString()">
+    </mat-form-field>
+    <mat-form-field style="display: block">
+        <input matInput placeholder="Gender" readonly [value]="driver.gender.toUpperCase()">
+    </mat-form-field>
+    <mat-form-field style="display: block">
+        <input matInput placeholder="Birthday" readonly [value]="driver.shortBirthDay">
+    </mat-form-field>
+</div>

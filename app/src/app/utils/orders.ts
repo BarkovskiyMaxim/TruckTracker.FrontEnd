@@ -11,6 +11,8 @@ export interface IOrder {
     predicted_duration?: number;
     departure_time?: Date;
     arrival_time?: Date;
+    driver?: number;
+    track?: number;
 }
 
 export interface ICoordinate {

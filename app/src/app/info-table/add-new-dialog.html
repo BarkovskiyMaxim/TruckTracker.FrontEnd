@@ -8,7 +8,24 @@
     <input matInput placeholder="End (lat,lng)" (blur)="createCoordinate('end', $event.target.value)" [value]="data.end.toString()">
 </mat-form-field>
 <mat-form-field style="display: block">
-    <input matInput [matDatepicker]="picker" (dateChange)="selectDate($event)" [value]="data.departure_time" placeholder="Choose a date">
+    <mat-label>Driver</mat-label>
+    <mat-select [(ngModel)]="data.driver" name="driver">
+        <mat-option *ngFor="let driver of drivers" [value]="driver.id">
+            {{driver.name}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field style="display: block">
+    <mat-label>Truck</mat-label>
+    <mat-select [(ngModel)]="data.truck" name="truck">
+        <mat-option *ngFor="let truck of trucks" [value]="truck.id">
+            {{truck.model}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field style="display: block">
+    <input matInput [matDatepicker]="picker" (dateChange)="selectDate($event)" [value]="data.departure_time"
+        placeholder="Choose a date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>

@@ -1,0 +1,39 @@
+<!-- <div class="info_table">
+  <div class="info_table_head">
+    <div class="info_table_cell">ID</div>
+    <div class="info_table_cell">Start Coordinates</div>
+    <div class="info_table_cell">End Coordinates</div>
+  </div>
+  <div class="info_table_row" *ngFor="let item of orders">
+    <app-route [route]=item></app-route>
+  </div>
+  <div class="info_table_row link">
+    <app-newroute></app-newroute>
+  </div>
+</div> -->
+<table style="width:100%; height: 100%;" mat-table multiTemplateDataRows [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell *matHeaderCellDef> {{columnsToDisplayMapper[column]()}} </th>
+    <td mat-cell *matCellDef="let element"> {{columnsToDisplayMapper[column](element[column])}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <driver-detail *ngIf="element == expandedElement" style="width: 100%" [driver]=element></driver-detail>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+    [class.example-expanded-row]="expandedElement === element"
+    (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>

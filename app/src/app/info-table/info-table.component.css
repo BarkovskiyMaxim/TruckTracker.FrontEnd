@@ -1,36 +1,3 @@
-/* .info_table .info_table_row {
-    display: block;
-    border-bottom: 1px solid #9d9d9d;
-}
-
-.info_table .info_table_row.link {
-    border-bottom: none;
-}
-
-
-.info_table .info_table_row:hover {
-    display: block;
-    border-bottom: 1px solid black;
-}
-
-.info_table .info_table_row.link:hover {
-    border-bottom: none;
-}
-
-.info_table .info_table_cell {
-    width: 33%;
-    position: relative;
-    height: 40px;
-    display: inline-block;
-    padding: 5px;
-}
-
-.info_table .info_table_head {
-    font-weight: bold;
-    display: block;
-    border-bottom: 2px solid #9d9d9d;
-} */
-
 table {
     width: 100%;
   }

@@ -4,6 +4,8 @@ import { TouchSequence } from 'selenium-webdriver';
 import { FasadService } from '../services/routingService';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatTableDataSource } from '@angular/material';
+import { Driver } from '../utils/driver';
+import { Truck } from '../utils/truck';
 
 @Component({
   selector: 'app-info-table',
@@ -29,7 +31,7 @@ export class InfoTableComponent implements OnInit {
   constructor(private fasad: FasadService, public dialog: MatDialog) {
     this._updateGrid();
   }
-  columnsToDisplay = ["id", "start", "end", "departure_time"]
+  columnsToDisplay = ["id","name", "start", "end", "departure_time"]
   ngOnInit() {
   }
   expandedElement: Order | null;
@@ -57,6 +59,8 @@ export class InfoTableComponent implements OnInit {
   templateUrl: 'add-new-dialog.html',
 })
 export class AddNewRouteDialog {
+  drivers = [];
+  trucks = [];
   createCoordinate(propertyName: string, value: string) {
     this.data[propertyName] = Coordinates.from(value);
   }
@@ -64,8 +68,20 @@ export class AddNewRouteDialog {
     this.data.departure_time = $event.value;
   }
   constructor(
+    public fasad: FasadService,
     public dialogRef: MatDialogRef<AddNewRouteDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: Order) { }
+    @Inject(MAT_DIALOG_DATA) public data: Order) { 
+      fasad.getDrivers().subscribe({
+        next: (result) => {
+          this.drivers = result;
+        }
+      });
+      fasad.getTrucks().subscribe({
+        next: (result) => {
+          this.trucks = result;
+        }
+      })
+    }
 
   cancel() {
     this.dialogRef.close();

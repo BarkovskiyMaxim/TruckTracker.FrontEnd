@@ -18,10 +18,21 @@
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/drivers']">
+                        <span class='glyphicon glyphicon-th-list'></span> Drivers
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/trucks']">
+                        <span class='glyphicon glyphicon-th-list'></span> Trucks
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/map']">
                         <span class='glyphicon glyphicon-th-list'></span> Map
                     </a>
                 </li>
+
             </ul>
         </div>
     </div>

@@ -2,32 +2,21 @@ import { Injectable } from '@angular/core';
 import { Order, Coordinates, IOrder } from '../utils/orders';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { FasadServiceMock } from './FasadServiceMock';
+import { Driver } from '../utils/driver';
+import { Truck } from '../utils/truck';
 
 
 const httpOptions = {
-headers: new HttpHeaders({
-'Access-Control-Allow-Origin':'*'
-})
+    headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
+    })
 };
 
 @Injectable()
 export class FasadService {
-    orders: any[] = [];
-    private guild() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
-        });
-    }
-    constructor(private http: HttpClient) {
-        for (var i = 0; i < 10; i++)
-            this.orders.push({
-                start: new Coordinates({ lat: Math.random() * 50, lng: Math.random() * 50 }),
-                end: new Coordinates({ lat: Math.random() * 50, lng: Math.random() * 50 }),
-                id: this.guild(),
-                departure_time: new Date()
-            });
-    }
+    private mock: FasadServiceMock = new FasadServiceMock();
+    constructor(private http: HttpClient) { }
     getOrders() {
         var emitter;
         var observable = Observable.create(e => emitter = e);
@@ -43,7 +32,55 @@ export class FasadService {
                 emitter.complete();
             },
             (error) => {
-                emitter.next(this.orders);
+                emitter.next(this.mock.getOrders());
+                emitter.complete();
+            });
+        return observable;
+    }
+    getDrivers() {
+        var emitter;
+        var observable = Observable.create(e => emitter = e);
+        this.http.get("http://localhost:8000/api/driver/", httpOptions).subscribe(
+            (result: any[]) => {
+                emitter.next(result.map(x => {
+                    var driver = new Driver();
+                    driver.id = x["id"];
+                    driver.name = x["name"];
+                    driver.birthDay = x["birth_day"];
+                    driver.gender = x["gender"];
+                    return driver;
+                }));
+                emitter.complete();
+            },
+            (error) => {
+                emitter.next(this.mock.getDrivers());
+                emitter.complete();
+            });
+        return observable;
+    }
+    getTrucks() {
+        var emitter;
+        var observable = Observable.create(e => emitter = e);
+        this.http.get("http://localhost:8000/api/truck/", httpOptions).subscribe(
+            (result: any[]) => {
+                emitter.next(result.map(x => {
+                    var truck = new Truck();
+                    truck.id = x["id"];
+                    truck.model = x["model"];
+                    truck.production_year = x["production_year"];
+                    truck.mileage = x["mileage"];
+                    truck.height = x["height"];
+                    truck.width = x["width"];
+                    truck.length = x["length"];
+                    truck.mass = x["mass"];
+                    truck.load_capacity = x["load_capacity"];
+                    truck.axis_number = x["axis_number"];
+                    return truck;
+                }));
+                emitter.complete();
+            },
+            (error) => {
+                emitter.next(this.mock.getTrucks());
                 emitter.complete();
             });
         return observable;
@@ -61,7 +98,7 @@ export class FasadService {
                 emitter.complete();
             },
             () => {
-                this.orders.push(order);
+                this.mock.saveOrder(order);
                 emitter.next();
                 emitter.complete();
             }
