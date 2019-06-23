@@ -9,7 +9,7 @@ export class FasadServiceMock {
     drivers: Driver[] = [];
     trucks: Truck[] = [];
     private _generateRNDCord() {
-        var cord = Math.random() * 100;
+        var cord = Math.random() * 50;
         return parseFloat(cord.toFixed(2));
     }
     constructor() {

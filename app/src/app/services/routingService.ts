@@ -89,6 +89,10 @@ export class FasadService {
         var emitter;
         var observable = Observable.create(e => emitter = e);
         this.http.post("order/new", {
+            name: order.name,
+            arrival_time: order.arrival_time.toString(),
+            departure_time: order.departure_time.toString(),
+            predicted_duration: order.predicted_duration.toString(),
             date: new Date().toString(),
             departure: order.start.toString(),
             destination: order.end.toString()
@@ -108,7 +112,7 @@ export class FasadService {
     getCurrentPosition(id: string) {
         var emitter;
         var observable = Observable.create(e => emitter = e);
-        this.http.get("orders/id/current").subscribe(
+        this.http.get("http://localhost:8000/api/current_position/" + id + "/").subscribe(
             (result: string) => {
                 emitter.next(Coordinates.from(result));
                 emitter.complete();
