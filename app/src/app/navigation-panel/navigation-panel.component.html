@@ -7,29 +7,29 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand' [routerLink]="['/']">Truck Tracker</a>
+            <a class='navbar-brand logo' [routerLink]="['/map']"></a>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
                 <li [routerLinkActive]="['link-active']"  [routerLinkActiveOptions]='{ exact: true }'>
-                    <a [routerLink]="['/']">
-                        <span class='glyphicon glyphicon-home'></span> Routes
+                    <a class="route_icon" [routerLink]="['/']">
+                        <span class='glyphicon'></span> Routes
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/drivers']">
-                        <span class='glyphicon glyphicon-th-list'></span> Drivers
+                    <a class="driver_icon" [routerLink]="['/drivers']">
+                        <span class='glyphicon'></span> Drivers
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/trucks']">
-                        <span class='glyphicon glyphicon-th-list'></span> Trucks
+                    <a class="truck_logo" [routerLink]="['/trucks']">
+                        <span class='glyphicon'></span> Trucks
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/map']">
-                        <span class='glyphicon glyphicon-th-list'></span> Map
+                    <a class="map_logo" [routerLink]="['/map']">
+                        <span class='glyphicon'></span> Map
                     </a>
                 </li>
 
