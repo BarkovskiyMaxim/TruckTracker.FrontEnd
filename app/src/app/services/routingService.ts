@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Order, Coordinates } from '../utils/orders';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
+
+const httpOptions = {
+headers: new HttpHeaders({
+'Access-Control-Allow-Origin':'*'
+})
+};
 
 @Injectable()
 export class FasadService {
@@ -23,13 +30,14 @@ export class FasadService {
     getOrders() {
         var emitter;
         var observable = Observable.create(e => emitter = e);
-        this.http.get("http://192.168.0.96:8000/api/shipping/").subscribe(
+        this.http.get("http://localhost:8000/api/shipping/", httpOptions).subscribe(
             (result: any[]) => {
                 emitter.next(result.map(x => {
                     var order = new Order();
-                    order.id = result["id"];
-                    order.start = Coordinates.from(result["departure"]);
-                    order.end = Coordinates.from(result["destination"]);
+                    order.id = x["id"];
+                    order.start = Coordinates.from(x["departure"]);
+                    order.end = Coordinates.from(x["destination"]);
+                    return order;
                 }));
                 emitter.complete();
             },
