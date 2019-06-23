@@ -12,7 +12,7 @@ export interface IOrder {
     departure_time?: Date;
     arrival_time?: Date;
     driver?: number;
-    track?: number;
+    truck?: number;
 }
 
 export interface ICoordinate {
@@ -47,4 +47,6 @@ export class Order implements IOrder {
     predicted_duration = 0;
     departure_time = new Date();
     arrival_time = new Date();
+    driver = null;
+    truck = null;
 }

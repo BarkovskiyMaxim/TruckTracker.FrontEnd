@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Order, Coordinates, IOrder } from '../utils/orders';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FasadServiceMock } from './FasadServiceMock';
+import { FasadServiceMock } from './fasadServiceMock';
 import { Driver } from '../utils/driver';
 import { Truck } from '../utils/truck';
 
@@ -88,15 +88,16 @@ export class FasadService {
     saveOrder(order: Order) {
         var emitter;
         var observable = Observable.create(e => emitter = e);
-        this.http.post("order/new", {
+        this.http.post("http://localhost:8000/api/shipping_add/", JSON.stringify({
             name: order.name,
-            arrival_time: order.arrival_time.toString(),
-            departure_time: order.departure_time.toString(),
-            predicted_duration: order.predicted_duration.toString(),
-            date: new Date().toString(),
+            arrival_time: order.arrival_time,
+            departure_time: order.departure_time,
+            predicted_duration: order.predicted_duration,
             departure: order.start.toString(),
-            destination: order.end.toString()
-        }).subscribe(
+            destination: order.end.toString(),
+            driver_id: order.driver,
+            truck_id: order.truck
+        }), httpOptions).subscribe(
             () => {
                 emitter.next();
                 emitter.complete();
