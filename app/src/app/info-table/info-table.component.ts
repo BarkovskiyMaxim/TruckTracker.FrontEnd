@@ -29,7 +29,7 @@ export class InfoTableComponent implements OnInit {
   constructor(private fasad: FasadService, public dialog: MatDialog) {
     this._updateGrid();
   }
-  columnsToDisplay = ["id", "start", "end"]
+  columnsToDisplay = ["id", "start", "end", "departure_time"]
   ngOnInit() {
   }
   expandedElement: Order | null;
@@ -47,7 +47,6 @@ export class InfoTableComponent implements OnInit {
             this._updateGrid();
           }
         })
-      this.dataSource.data = this.fasad.getOrders();
     });
   }
 }
@@ -58,7 +57,12 @@ export class InfoTableComponent implements OnInit {
   templateUrl: 'add-new-dialog.html',
 })
 export class AddNewRouteDialog {
-
+  createCoordinate(propertyName: string, value: string) {
+    this.data[propertyName] = Coordinates.from(value);
+  }
+  selectDate($event) {
+    this.data.departure_time = $event.value;
+  }
   constructor(
     public dialogRef: MatDialogRef<AddNewRouteDialog>,
     @Inject(MAT_DIALOG_DATA) public data: Order) { }

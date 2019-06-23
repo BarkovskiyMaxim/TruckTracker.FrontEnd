@@ -1,17 +1,16 @@
 <mat-form-field style="display: block">
-    <input matInput placeholder="ID" (blur)="data.id = $event.target.value" [value]="data.id">
+    <input matInput placeholder="Name" (blur)="data.name = $event.target.value" [value]="data.name">
 </mat-form-field>
 <mat-form-field style="display: block">
-    <input matInput placeholder="Start - lat" (blur)="data.start.lat = $event.target.value" [value]="data.start.lat">
+    <input matInput placeholder="Start (lat,lng)" (blur)="createCoordinate('start', $event.target.value)" [value]="data.start.toString()">
 </mat-form-field>
 <mat-form-field style="display: block">
-    <input matInput placeholder="Start - lng" (blur)="data.start.lng = $event.target.value" [value]="data.start.lng">
+    <input matInput placeholder="End (lat,lng)" (blur)="createCoordinate('end', $event.target.value)" [value]="data.end.toString()">
 </mat-form-field>
 <mat-form-field style="display: block">
-    <input matInput placeholder="End - lat" (blur)="data.end.lat = $event.target.value" [value]="data.end.lat">
-</mat-form-field>
-<mat-form-field style="display: block">
-    <input matInput placeholder="End - lng" (blur)="data.end.lng = $event.target.value" [value]="data.end.lng">
+    <input matInput [matDatepicker]="picker" (dateChange)="selectDate($event)" [value]="data.departure_time" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 <div class="button_panel">
     <button class="button" mat-raised-button [mat-dialog-close]="data">Save</button>

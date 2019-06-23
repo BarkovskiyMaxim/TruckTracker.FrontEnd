@@ -8,8 +8,7 @@ import { InfoTableComponent, AddNewRouteDialog } from './info-table/info-table.c
 import { MapComponent } from './map/map.component';
 import { RouteComponent } from './route/route.component';
 import { FasadService } from './services/routingService';
-import { NewrouteComponent } from './newroute/newroute.component';
-import { MatButtonModule, MatFormFieldModule, MatInputModule, MatTableModule, MatListModule, MatDialogModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatFormFieldModule, MatInputModule, MatTableModule, MatListModule, MatDialogModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -23,7 +22,6 @@ import { FormsModule } from '@angular/forms';
     InfoTableComponent,
     MapComponent,
     RouteComponent,
-    NewrouteComponent,
     AddNewRouteDialog
   ],
   imports: [
@@ -37,6 +35,8 @@ import { FormsModule } from '@angular/forms';
     MatListModule,
     MatDialogModule,
     MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     FormsModule,
     HttpClientModule
   ],

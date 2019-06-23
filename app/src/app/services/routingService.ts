@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Order, Coordinates } from '../utils/orders';
+import { Order, Coordinates, IOrder } from '../utils/orders';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -12,7 +12,7 @@ headers: new HttpHeaders({
 
 @Injectable()
 export class FasadService {
-    orders: Order[] = [];
+    orders: any[] = [];
     private guild() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -24,7 +24,8 @@ export class FasadService {
             this.orders.push({
                 start: new Coordinates({ lat: Math.random() * 50, lng: Math.random() * 50 }),
                 end: new Coordinates({ lat: Math.random() * 50, lng: Math.random() * 50 }),
-                id: this.guild()
+                id: this.guild(),
+                departure_time: new Date()
             });
     }
     getOrders() {

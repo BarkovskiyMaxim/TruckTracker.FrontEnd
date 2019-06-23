@@ -1,0 +1,8 @@
+<div class="map" #map></div>
+<div class="startform">
+  <mat-form-field style="display: block">
+    <input matInput placeholder="Enter ID" (blur)="id = $event.target.value" [value]="id">
+  </mat-form-field>
+  <button class="button" mat-raised-button (click)="start()">Start</button>
+</div>
+<router-outlet></router-outlet>
